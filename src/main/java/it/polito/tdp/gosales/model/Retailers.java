@@ -1,13 +1,15 @@
 package it.polito.tdp.gosales.model;
 
-import java.util.Objects;
+import java.util.*;
 
-public class Retailers {
+public class Retailers implements Comparable<Retailers>{
 
 	private int code;
 	private String name;
 	private String type;
 	private String country;
+	
+	Set<Integer> products;
 	
 	public Retailers(int code, String name, String type, String country) {
 		super();
@@ -15,6 +17,15 @@ public class Retailers {
 		this.name = name;
 		this.type = type;
 		this.country = country;
+		this.products = new HashSet<>();
+	}
+
+	public Set<Integer> getProducts() {
+		return products;
+	}
+
+	public void setProducts(Set<Integer> products) {
+		this.products = products;
 	}
 
 	/**
@@ -94,6 +105,12 @@ public class Retailers {
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	@Override
+	public int compareTo(Retailers o) {
+		// TODO Auto-generated method stub
+		return this.name.compareTo(o.getName());
 	}
 	
 	
